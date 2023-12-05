@@ -6,50 +6,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  let category = transactions.keys();
-  
-  return [];
+  let categories = new Set() // creating set to get the unique categories 
+  let total = 0;
+  let result = []
+
+  transactions.forEach((ele) => {
+    categories.add(ele['category']) // loading all the category name in a set 
+  })
+
+
+  for (const item of categories) {
+    total = 0
+    for (let j = 0; j < transactions.length; j++) {
+      if (transactions[j]['category'] == item) {
+        total += transactions[j]['price'] // calculating the total price 
+      }
+    }
+    result.push(
+      { category: item, totalSpent: total } // adding results in "result" arr 
+    )
+  }
+  return result;
 }
 
 
-
-const transactions = [
-  {
-    id: 1,
-    timestamp: 1656076800000,
-    price: 10,
-    category: 'Food',
-    itemName: 'Pizza',
-  },
-  {
-    id: 2,
-    timestamp: 1656259600000,
-    price: 20,
-    category: 'Food',
-    itemName: 'Burger',
-  },
-  {
-    id: 3,
-    timestamp: 1656019200000,
-    price: 15,
-    category: 'Clothing',
-    itemName: 'T-Shirt',
-  },
-  {
-    id: 4,
-    timestamp: 1656364800000,
-    price: 30,
-    category: 'Electronics',
-    itemName: 'Headphones',
-  },
-  {
-    id: 5,
-    timestamp: 1656105600000,
-    price: 25,
-    category: 'Clothing',
-    itemName: 'Jeans',
-  },
-]
-
-calculateTotalSpentByCategory(transactions)
-// module.exports = calculateTotalSpentByCategory;
+module.exports = calculateTotalSpentByCategory;
