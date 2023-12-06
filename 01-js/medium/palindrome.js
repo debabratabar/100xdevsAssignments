@@ -4,6 +4,14 @@
 */
 
 function isPalindrome(str) {
+  let strArr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().split(" ") // replaced space & punctual chars
+   strArr= strArr.join("").split("") // creating char Arr 
+  for ( let i=0,j=strArr.length-1;i<j ;i++,j--){
+    if(strArr[i] != strArr[j]){
+      return false;
+    }
+  }
+
   return true;
 }
 
