@@ -11,39 +11,39 @@
 */
 
 class Todo {
-  constructor(){
-    this.items=[]
+  constructor() {
+    this.items = []
   }
-  add(todo){
+  add(todo) {
     this.items.push(todo)
   }
 
-  remove(indexOfTodo){
-    let suffle =0
-      for ( let index=indexOfTodo;index < (this.items.length)-1;index++){
-        [this.items[index] , this.items[index+1]] = [this.items[index+1], this.items[index]]
-        suffle=1
-      }
-      if( suffle){
-        this.items.pop()
-      }
-  }
-  update(index , updatedTodo){
-    if(index <this.items.length){
-    this.items[index]=updatedTodo
+  remove(indexOfTodo) {
+    let suffle = 0
+    for (let index = indexOfTodo; index < (this.items.length) - 1; index++) {
+      [this.items[index], this.items[index + 1]] = [this.items[index + 1], this.items[index]]
+      suffle = 1
+    }
+    if (suffle) {
+      this.items.pop()
     }
   }
-  getAll(){
+  update(index, updatedTodo) {
+    if (index < this.items.length) {
+      this.items[index] = updatedTodo
+    }
+  }
+  getAll() {
     return this.items;
   }
-  get(indexOfTodo){
-    if ( indexOfTodo < this.items.length ){
-    return this.items[indexOfTodo]
+  get(indexOfTodo) {
+    if (indexOfTodo < this.items.length) {
+      return this.items[indexOfTodo]
     }
     return null
   }
-  clear(){
-    this.items.length=0
+  clear() {
+    this.items.length = 0
   }
 
 }
