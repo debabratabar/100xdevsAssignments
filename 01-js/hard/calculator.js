@@ -16,6 +16,48 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0
+  }
+  add(val) {
+    this.result = this.result + parseInt(val)
+  }
+  subtract(val) {
+    this.result = this.result - parseInt(val)
+  }
+  multiply(val) {
+    this.result = this.result * parseInt(val)
+  }
+  divide(val) {
+    this.result = this.result / parseInt(val)
+  }
+  clear() {
+    this.result = 0
+  }
+  getResult() {
+    return this.result
+  }
+  calculate(exp) {
+    try {
+      eval(exp)
+    } catch (Error) {
+      return Error
+    }
+    return eval(exp)
+  }
+
+}
 
 module.exports = Calculator;
+
+
+// let cal = new Calculator()
+// // cal.calculate('10/0')
+// console.log(cal.calculate(' 10 / 2'));
+
+// //   module.exports = Calculator;
+
+// console.log(10/0);
+
+
