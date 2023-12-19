@@ -5,19 +5,38 @@
  */
 
 function wait1(t) {
-
+    let p1 = new Promise( (resolve) => {
+        setTimeout(resolve ,  t*1000)
+    })
+    return p1;
 }
 
 function wait2(t) {
-
+    let p2 = new Promise( (resolve) => {
+        setTimeout(resolve ,  t*1000)
+    })
+    return p2;
 }
 
 function wait3(t) {
-
+    let p3 = new Promise( (resolve) => {
+        setTimeout(resolve ,  t*1000)
+    })
+    return p3;
 }
 
 function calculateTime(t1, t2, t3) {
+        let p1= wait1(t1)
+        let p2 = wait2(t2)
+        let p3 = wait3(t3)
 
+        let promiceArr = [p1 , p2 , p3]
+
+        let result =  Promise.all(promiceArr).catch( (err) => {
+                console.log(err);
+        })
+
+        return  result
 }
 
 module.exports = calculateTime;
