@@ -46,11 +46,12 @@ const app = express();
 
 app.use(bodyParser.json());
 
-let todoList = [{ "title": "Buy groceries", "description": "I should buy groceries" }]
+// let todoList = [{ "title": "Buy groceries", "description": "I should buy groceries" }]
+let todoList =[]
 
 //1. Retrieve all todo items
 app.get("/todos", (req, res) => {
-  res.json({todoList})
+  res.json(todoList)
 
 })
 //2.  Retrieve a specific todo item by ID
@@ -61,7 +62,8 @@ app.get("/todos:id", (req, res) => {
 
 // 3. Create a new todo item 
 app.post("/todos", (req, res) => {
-
+      let todoItem = { "title": "Buy groceries", description: "I should buy groceries" }
+      todoList.push(todoItem)
 })
 
 // 4. Update an existing todo item by ID
@@ -77,9 +79,9 @@ app.delete("/todos/:id", (req, res) => {
 
 
 
-app.listen(3000)
+// app.listen(3000)
 
 
 
-// module.exports = app;
+module.exports = app;
 
